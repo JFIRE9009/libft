@@ -6,18 +6,17 @@
 /*   By: jhouston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 09:27:51 by jhouston          #+#    #+#             */
-/*   Updated: 2019/06/13 09:35:21 by jhouston         ###   ########.fr       */
+/*   Updated: 2019/06/14 09:58:19 by jhouston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_lstiter(t_list *lst, void (*f)(t_list*elem))
 {
-	while (lst != NULL)
+	while (lst)
 	{
-		nextlst = lst->next;
-		(&f)(lst->content, lst->content_size);
-		free(lst);
-		lst = nextlst;
+		f(lst);
+		lst = lst->next;
 	}
-	*alst = NULL;
 }

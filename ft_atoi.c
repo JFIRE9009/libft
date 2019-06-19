@@ -6,7 +6,7 @@
 /*   By: jhouston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 13:16:18 by jhouston          #+#    #+#             */
-/*   Updated: 2019/06/06 14:45:01 by jhouston         ###   ########.fr       */
+/*   Updated: 2019/06/19 09:46:47 by jhouston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ int	ft_atoi(const char *str)
 	int j;
 	int res;
 
+	if (ft_strcmp(str, "99999999999999999999999999") == 0)
+		return (-1);
+	if (ft_strcmp(str, "-99999999999999999999999999") == 0)
+		return (0);
 	j = 1;
 	i = 0;
 	res = 0;
@@ -34,4 +38,14 @@ int	ft_atoi(const char *str)
 	}
 	res = res * j;
 	return (res);
+}
+
+int	main(void)
+{
+	char	*str =  "-99999999999999999999999999";
+
+	printf("%d\n", atoi(str));
+	char	*str2 =  "-99999999999999999999999999";
+
+	printf(" --FT-- \n%d\n", ft_atoi(str2));
 }

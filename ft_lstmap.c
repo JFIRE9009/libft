@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhouston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/20 09:50:25 by jhouston          #+#    #+#             */
-/*   Updated: 2019/06/17 09:53:21 by jhouston         ###   ########.fr       */
+/*   Created: 2019/06/14 08:08:21 by jhouston          #+#    #+#             */
+/*   Updated: 2019/06/14 10:00:02 by jhouston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *buf, int ch, size_t count)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char *str;
+	t_list	*newlst;
+	t_list	*lstret;
 
-	if (count == 0)
-		return (buf);
-	str = buf;
-	while (count--)
-	{
-		*str = ch;
-		if (count)
-			str++;
-	}
-	return (buf);
+	newlst = f(lst);
+	lstret = newlst;
+	if (newlst == NULL || f == NULL)
+		return (NULL);
+	else
+		while (lst)
+		{
+			newlst->next = f(newlst->next);
+			lst = lst->next;
+			newlst = newlst->next;
+		}
+	return (lstret);
 }
