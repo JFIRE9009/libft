@@ -6,7 +6,7 @@
 /*   By: sconstab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 13:44:53 by sconstab          #+#    #+#             */
-/*   Updated: 2019/06/04 14:49:50 by sconstab         ###   ########.fr       */
+/*   Updated: 2019/06/28 14:26:20 by jhouston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_wordcount(char const *s, char c)
 
 	i = 0;
 	j = 0;
-	if (s[i] != c)
+	if (s[i] != c && s[i])
 		j++;
 	while (s[i])
 	{

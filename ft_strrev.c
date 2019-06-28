@@ -6,7 +6,7 @@
 /*   By: sconstab <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/31 07:46:12 by sconstab          #+#    #+#             */
-/*   Updated: 2019/06/14 10:50:13 by jhouston         ###   ########.fr       */
+/*   Updated: 2019/06/28 10:35:02 by jhouston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 char	*ft_strrev(char *s)
 {
-	char	*ns;
 	int		len;
 	int		i;
+	char	c;
 
 	i = 0;
-	len = ft_strlen(s) - 1;
-	ns = ft_strnew(len);
-	while (len >= 0)
-		ns[i++] = s[len--];
-	ns[i] = '\0';
-	return (ns);
+	len = ft_strlen(s);
+	while (i < len / 2)
+	{
+		c = s[i];
+		s[i] = s[len];
+		s[len] = c;
+		i++;
+		len--;
+	}
+	return (s);
 }
